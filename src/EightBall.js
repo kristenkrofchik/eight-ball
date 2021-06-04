@@ -4,7 +4,7 @@ function EightBall(props) {
     const [msg, setMsg] = useState("Think of a Question");
     const [color, setColor] = useState("black");
 
-    const genRandomIdx = () => Math.floor(Math.random() * EightBall.defaultProps.length) + 1;
+    const genRandomIdx = () => Math.floor(Math.random() * EightBall.defaultProps.length);
 
     const changeEightBall = () => {
         setMsg(EightBall.defaultProps[genRandomIdx].msg);
@@ -12,11 +12,10 @@ function EightBall(props) {
     }
 
     return (
-        <div className="eightBall">
-            <h4 className="eightBall-msg" styles={{backgroundColor: color}} onClick={changeEightBall}>{msg}</h4>
+        <div className="eightBall" style={{backgroundColor: color}} onClick={changeEightBall}>
+            <h4 className="eightBall-msg">{msg}</h4>
         </div>
-    )
-
+    );
 }
 
 EightBall.defaultProps = [
